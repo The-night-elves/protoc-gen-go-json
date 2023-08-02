@@ -1,0 +1,95 @@
+syntax="proto3";
+
+package pb;
+option go_package = "./pb";
+
+message Number {
+    uint32 u32 = 1;
+    uint64 u64 = 2;
+    sint32 s32 = 3;
+    sint64 s64 = 4;
+    fixed32 uf32 = 5;
+    fixed64 uf64 = 6;
+    sfixed32 sf32 = 7;
+    sfixed64 sf64 = 8;
+    int32 i32 = 9;
+    int64 i64 = 10;
+    double f64 = 11;
+    float f32 = 12;
+}
+
+message String {
+    string str = 1;
+    bytes bytes = 2;
+}
+
+message Bool {
+    bool b = 1;
+}
+
+enum Type {
+    NUMBER = 0;
+    STRING = 1;
+    BOOL = 2;
+}
+
+
+message Message {
+    Type type = 1;
+    Number number = 2;
+    String string = 3;
+    Bool bool = 4;
+}
+
+message Array {
+    repeated Number numbers = 1;
+    repeated String strings = 2;
+    repeated Bool bools = 3;
+    repeated Message messages = 4;
+    repeated Array arrays = 5;
+    repeated Type types = 6;
+    repeated uint32 u32s = 7;
+    repeated string strs = 8;
+}
+
+message Map {
+    map<uint32, Number> numbers = 1;
+    map<string, String> strings = 2;
+    map<bool, Bool> bools = 3;
+    map<string, Message> messages = 4;
+    map<string, Array> arrays = 5;
+    map<int32, Type> types = 6;
+    map<string, uint32> u32s = 7;
+    map<string, string> strs = 8;
+    map<string, Empty> empties = 9;
+    map<string, Optional> optionals = 10;
+    map<string, Oneof> oneofs = 11;
+}
+
+message Empty {}
+
+message Optional {
+    optional Number number = 1;
+    optional String string = 2;
+    optional Bool bool = 3;
+    optional Message message = 4;
+    optional Array array = 5;
+    optional Type type = 6;
+    optional uint32 u32 = 7;
+    optional string str = 8;
+}
+
+message Oneof {
+    Number number = 1;
+    oneof oneof {
+        String string = 2;
+        Bool bool = 3;
+        Message message = 4;
+        Array array = 5;
+        Type type = 6;
+        uint32 u32 = 7;
+        string str = 8;
+    }
+    Number number_x = 9;
+    String string_x = 10;
+}
