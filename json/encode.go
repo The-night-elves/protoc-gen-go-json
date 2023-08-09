@@ -46,11 +46,7 @@ func (f *File) Generate(ctx *Context) error {
 	if err != nil {
 		return err
 	}
-	if err = f.GenerateMessages(ctx); err != nil {
-		return err
-	}
-
-	return nil
+	return f.GenerateMessages(ctx)
 }
 
 func (f *File) GenerateFileHead() error {
@@ -101,9 +97,7 @@ func (f *File) GenerateMessage(ctx *Context, msg *protogen.Message) error {
 		f.P("var ", CommaVarName, " bool")
 	}
 
-	// output oneof
-	start := 0
-	for i := start; i < size; i++ {
+	for i := 0; i < size; i++ {
 		f.P("// go name ", msg.Fields[i].GoName, " : kind ", msg.Fields[i].Desc.Kind())
 		oneof := msg.Fields[i].Oneof != nil && !msg.Fields[i].Oneof.Desc.IsSynthetic()
 		if oneof {
@@ -112,7 +106,6 @@ func (f *File) GenerateMessage(ctx *Context, msg *protogen.Message) error {
 			f.P("// number ", msg.Fields[i].Desc.Number())
 			f.GenerateMessageField(ctx, msg.Fields[i], size)
 		}
-
 	}
 	f.P(Buf, WriteByte, `('}')`)
 	f.P("return ", Buf, ctx.WriteBytes, ",nil")
@@ -205,7 +198,6 @@ func (f *File) GenerateMessageField(ctx *Context, fd *protogen.Field, size int) 
 			f.WirteCommaTrue(fd, size)
 		}
 	}
-
 }
 
 // WirteCommaTrue wirte first filed end set true
@@ -246,7 +238,7 @@ func (f *File) WirteCommaAndTrue(fd *protogen.Field) {
 }
 
 // CheckTypeIsDefault 检查 type is default
-func CheckTypeIsDefault(ctx *Context, val string, fd *protogen.Field) (string, bool) {
+func CheckTypeIsDefault(_ *Context, val string, fd *protogen.Field) (string, bool) {
 	switch fd.Desc.Kind() {
 	case protoreflect.Int32Kind, protoreflect.Sint32Kind, protoreflect.Uint32Kind,
 		protoreflect.Int64Kind, protoreflect.Sint64Kind, protoreflect.Uint64Kind,
@@ -259,7 +251,6 @@ func CheckTypeIsDefault(ctx *Context, val string, fd *protogen.Field) (string, b
 	case protoreflect.MessageKind:
 		return fmt.Sprintf("%s != nil", val), true
 	default:
-
 		return "", false
 	}
 }

@@ -1,4 +1,5 @@
 .idea
 
-./testdata/output.json5
-./protoc-gen-go-json
+
+/protoc-gen-go-json
+/testdata/output.json5
