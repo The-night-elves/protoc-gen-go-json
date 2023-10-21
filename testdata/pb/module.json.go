@@ -1042,3 +1042,234 @@ func (x *Oneof) MarshalJSON() ([]byte, error) {
 	buf.WriteByte('}')
 	return buf.Bytes(), nil
 }
+
+// pb.UnsafeTest.Sub1
+func (x *UnsafeTest_Sub1) MarshalJSON() ([]byte, error) {
+	if x == nil {
+		return nil, nil
+	}
+	var buf bytes.Buffer
+	buf.WriteByte('{')
+	var writeComma bool
+	// go name S : kind string
+	// number 1
+	if len(x.S) != 0 {
+		buf.WriteString(`"s":`)
+		buf.WriteByte('"')
+		buf.WriteString(x.S)
+		buf.WriteByte('"')
+		writeComma = true
+	}
+	// go name B : kind bytes
+	// number 2
+	if len(x.B) != 0 {
+		if writeComma {
+			buf.WriteByte(',')
+		} else {
+			writeComma = true
+		}
+		buf.WriteString(`"b":`)
+		buf.WriteByte('"')
+		buf.WriteString(base64.StdEncoding.EncodeToString(x.B))
+		buf.WriteByte('"')
+	}
+	buf.WriteByte('}')
+	return buf.Bytes(), nil
+}
+
+// pb.UnsafeTest.Sub2
+func (x *UnsafeTest_Sub2) MarshalJSON() ([]byte, error) {
+	if x == nil {
+		return nil, nil
+	}
+	var buf bytes.Buffer
+	buf.WriteByte('{')
+	var writeComma bool
+	// go name S : kind string
+	// number 1
+	if len(x.S) > 0 {
+		buf.WriteString(`"s":[`)
+		for i, val := range x.S {
+			// string
+			if i > 0 {
+				buf.WriteByte(',')
+			}
+			buf.WriteByte('"')
+			buf.WriteString(val)
+			buf.WriteByte('"')
+		}
+		buf.WriteByte(']')
+		writeComma = true
+	}
+	// go name B : kind bytes
+	// number 2
+	if len(x.B) > 0 {
+		if writeComma {
+			buf.WriteByte(',')
+		} else {
+			writeComma = true
+		}
+		buf.WriteString(`"b":[`)
+		for i, val := range x.B {
+			// bytes
+			if i > 0 {
+				buf.WriteByte(',')
+			}
+			buf.WriteByte('"')
+			buf.WriteString(base64.StdEncoding.EncodeToString(val))
+			buf.WriteByte('"')
+		}
+		buf.WriteByte(']')
+	}
+	buf.WriteByte('}')
+	return buf.Bytes(), nil
+}
+
+// pb.UnsafeTest.Sub3
+func (x *UnsafeTest_Sub3) MarshalJSON() ([]byte, error) {
+	if x == nil {
+		return nil, nil
+	}
+	var buf bytes.Buffer
+	buf.WriteByte('{')
+	// go name Foo : kind message
+	// number 1
+	if len(x.Foo) > 0 {
+		buf.WriteString(`"foo":{`)
+		var many bool
+		for key, val := range x.Foo {
+			// message, key string, value message
+			if many {
+				buf.WriteByte(',')
+			} else {
+				many = true
+			}
+			buf.WriteByte('"')
+			buf.WriteString(key)
+			buf.WriteByte('"')
+			buf.WriteByte(':')
+			if data, err := val.MarshalJSON(); err != nil {
+				return nil, err
+			} else {
+				buf.Write(data)
+			}
+		}
+		buf.WriteByte('}')
+	}
+	buf.WriteByte('}')
+	return buf.Bytes(), nil
+}
+
+// pb.UnsafeTest.Sub4
+func (x *UnsafeTest_Sub4) MarshalJSON() ([]byte, error) {
+	if x == nil {
+		return nil, nil
+	}
+	var buf bytes.Buffer
+	buf.WriteByte('{')
+	var writeComma bool
+	// go name S : kind string
+	// Foo S
+	if x.Foo != nil {
+		switch x := x.Foo.(type) {
+		// S UnsafeTest_Sub4_S 1
+		case *UnsafeTest_Sub4_S:
+			if len(x.S) != 0 {
+				buf.WriteString(`"s":`)
+				buf.WriteByte('"')
+				buf.WriteString(x.S)
+				buf.WriteByte('"')
+				writeComma = true
+			}
+		// B UnsafeTest_Sub4_B 2
+		case *UnsafeTest_Sub4_B:
+			if len(x.B) != 0 {
+				if writeComma {
+					buf.WriteByte(',')
+				} else {
+					writeComma = true
+				}
+				buf.WriteString(`"b":`)
+				buf.WriteByte('"')
+				buf.WriteString(base64.StdEncoding.EncodeToString(x.B))
+				buf.WriteByte('"')
+			}
+		}
+	}
+	buf.WriteByte('}')
+	return buf.Bytes(), nil
+}
+
+// pb.UnsafeTest
+func (x *UnsafeTest) MarshalJSON() ([]byte, error) {
+	if x == nil {
+		return nil, nil
+	}
+	var buf bytes.Buffer
+	buf.WriteByte('{')
+	var writeComma bool
+	// go name Sub1 : kind message
+	// Sub Sub1
+	if x.Sub != nil {
+		switch x := x.Sub.(type) {
+		// Sub1 UnsafeTest_Sub1_ 1
+		case *UnsafeTest_Sub1_:
+			if x.Sub1 != nil {
+				buf.WriteString(`"sub1":`)
+				if data, err := x.Sub1.MarshalJSON(); err != nil {
+					return nil, err
+				} else {
+					buf.Write(data)
+				}
+				writeComma = true
+			}
+		// Sub2 UnsafeTest_Sub2_ 2
+		case *UnsafeTest_Sub2_:
+			if x.Sub2 != nil {
+				if writeComma {
+					buf.WriteByte(',')
+				} else {
+					writeComma = true
+				}
+				buf.WriteString(`"sub2":`)
+				if data, err := x.Sub2.MarshalJSON(); err != nil {
+					return nil, err
+				} else {
+					buf.Write(data)
+				}
+			}
+		// Sub3 UnsafeTest_Sub3_ 3
+		case *UnsafeTest_Sub3_:
+			if x.Sub3 != nil {
+				if writeComma {
+					buf.WriteByte(',')
+				} else {
+					writeComma = true
+				}
+				buf.WriteString(`"sub3":`)
+				if data, err := x.Sub3.MarshalJSON(); err != nil {
+					return nil, err
+				} else {
+					buf.Write(data)
+				}
+			}
+		// Sub4 UnsafeTest_Sub4_ 4
+		case *UnsafeTest_Sub4_:
+			if x.Sub4 != nil {
+				if writeComma {
+					buf.WriteByte(',')
+				} else {
+					writeComma = true
+				}
+				buf.WriteString(`"sub4":`)
+				if data, err := x.Sub4.MarshalJSON(); err != nil {
+					return nil, err
+				} else {
+					buf.Write(data)
+				}
+			}
+		}
+	}
+	buf.WriteByte('}')
+	return buf.Bytes(), nil
+}

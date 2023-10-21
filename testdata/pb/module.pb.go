@@ -923,6 +923,353 @@ func (*Oneof_U32) isOneof_Oneof() {}
 
 func (*Oneof_Str) isOneof_Oneof() {}
 
+type UnsafeTest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// Types that are assignable to Sub:
+	//
+	//	*UnsafeTest_Sub1_
+	//	*UnsafeTest_Sub2_
+	//	*UnsafeTest_Sub3_
+	//	*UnsafeTest_Sub4_
+	Sub isUnsafeTest_Sub `protobuf_oneof:"sub"`
+}
+
+func (x *UnsafeTest) Reset() {
+	*x = UnsafeTest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_module_proto_msgTypes[9]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *UnsafeTest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnsafeTest) ProtoMessage() {}
+
+func (x *UnsafeTest) ProtoReflect() protoreflect.Message {
+	mi := &file_module_proto_msgTypes[9]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnsafeTest.ProtoReflect.Descriptor instead.
+func (*UnsafeTest) Descriptor() ([]byte, []int) {
+	return file_module_proto_rawDescGZIP(), []int{9}
+}
+
+func (m *UnsafeTest) GetSub() isUnsafeTest_Sub {
+	if m != nil {
+		return m.Sub
+	}
+	return nil
+}
+
+func (x *UnsafeTest) GetSub1() *UnsafeTest_Sub1 {
+	if x, ok := x.GetSub().(*UnsafeTest_Sub1_); ok {
+		return x.Sub1
+	}
+	return nil
+}
+
+func (x *UnsafeTest) GetSub2() *UnsafeTest_Sub2 {
+	if x, ok := x.GetSub().(*UnsafeTest_Sub2_); ok {
+		return x.Sub2
+	}
+	return nil
+}
+
+func (x *UnsafeTest) GetSub3() *UnsafeTest_Sub3 {
+	if x, ok := x.GetSub().(*UnsafeTest_Sub3_); ok {
+		return x.Sub3
+	}
+	return nil
+}
+
+func (x *UnsafeTest) GetSub4() *UnsafeTest_Sub4 {
+	if x, ok := x.GetSub().(*UnsafeTest_Sub4_); ok {
+		return x.Sub4
+	}
+	return nil
+}
+
+type isUnsafeTest_Sub interface {
+	isUnsafeTest_Sub()
+}
+
+type UnsafeTest_Sub1_ struct {
+	Sub1 *UnsafeTest_Sub1 `protobuf:"bytes,1,opt,name=sub1,proto3,oneof"`
+}
+
+type UnsafeTest_Sub2_ struct {
+	Sub2 *UnsafeTest_Sub2 `protobuf:"bytes,2,opt,name=sub2,proto3,oneof"`
+}
+
+type UnsafeTest_Sub3_ struct {
+	Sub3 *UnsafeTest_Sub3 `protobuf:"bytes,3,opt,name=sub3,proto3,oneof"`
+}
+
+type UnsafeTest_Sub4_ struct {
+	Sub4 *UnsafeTest_Sub4 `protobuf:"bytes,4,opt,name=sub4,proto3,oneof"`
+}
+
+func (*UnsafeTest_Sub1_) isUnsafeTest_Sub() {}
+
+func (*UnsafeTest_Sub2_) isUnsafeTest_Sub() {}
+
+func (*UnsafeTest_Sub3_) isUnsafeTest_Sub() {}
+
+func (*UnsafeTest_Sub4_) isUnsafeTest_Sub() {}
+
+type UnsafeTest_Sub1 struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	S string `protobuf:"bytes,1,opt,name=s,proto3" json:"s,omitempty"`
+	B []byte `protobuf:"bytes,2,opt,name=b,proto3" json:"b,omitempty"`
+}
+
+func (x *UnsafeTest_Sub1) Reset() {
+	*x = UnsafeTest_Sub1{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_module_proto_msgTypes[21]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *UnsafeTest_Sub1) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnsafeTest_Sub1) ProtoMessage() {}
+
+func (x *UnsafeTest_Sub1) ProtoReflect() protoreflect.Message {
+	mi := &file_module_proto_msgTypes[21]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnsafeTest_Sub1.ProtoReflect.Descriptor instead.
+func (*UnsafeTest_Sub1) Descriptor() ([]byte, []int) {
+	return file_module_proto_rawDescGZIP(), []int{9, 0}
+}
+
+func (x *UnsafeTest_Sub1) GetS() string {
+	if x != nil {
+		return x.S
+	}
+	return ""
+}
+
+func (x *UnsafeTest_Sub1) GetB() []byte {
+	if x != nil {
+		return x.B
+	}
+	return nil
+}
+
+type UnsafeTest_Sub2 struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	S []string `protobuf:"bytes,1,rep,name=s,proto3" json:"s,omitempty"`
+	B [][]byte `protobuf:"bytes,2,rep,name=b,proto3" json:"b,omitempty"`
+}
+
+func (x *UnsafeTest_Sub2) Reset() {
+	*x = UnsafeTest_Sub2{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_module_proto_msgTypes[22]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *UnsafeTest_Sub2) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnsafeTest_Sub2) ProtoMessage() {}
+
+func (x *UnsafeTest_Sub2) ProtoReflect() protoreflect.Message {
+	mi := &file_module_proto_msgTypes[22]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnsafeTest_Sub2.ProtoReflect.Descriptor instead.
+func (*UnsafeTest_Sub2) Descriptor() ([]byte, []int) {
+	return file_module_proto_rawDescGZIP(), []int{9, 1}
+}
+
+func (x *UnsafeTest_Sub2) GetS() []string {
+	if x != nil {
+		return x.S
+	}
+	return nil
+}
+
+func (x *UnsafeTest_Sub2) GetB() [][]byte {
+	if x != nil {
+		return x.B
+	}
+	return nil
+}
+
+type UnsafeTest_Sub3 struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Foo map[string]*UnsafeTest_Sub2 `protobuf:"bytes,1,rep,name=foo,proto3" json:"foo,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+}
+
+func (x *UnsafeTest_Sub3) Reset() {
+	*x = UnsafeTest_Sub3{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_module_proto_msgTypes[23]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *UnsafeTest_Sub3) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnsafeTest_Sub3) ProtoMessage() {}
+
+func (x *UnsafeTest_Sub3) ProtoReflect() protoreflect.Message {
+	mi := &file_module_proto_msgTypes[23]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnsafeTest_Sub3.ProtoReflect.Descriptor instead.
+func (*UnsafeTest_Sub3) Descriptor() ([]byte, []int) {
+	return file_module_proto_rawDescGZIP(), []int{9, 2}
+}
+
+func (x *UnsafeTest_Sub3) GetFoo() map[string]*UnsafeTest_Sub2 {
+	if x != nil {
+		return x.Foo
+	}
+	return nil
+}
+
+type UnsafeTest_Sub4 struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// Types that are assignable to Foo:
+	//
+	//	*UnsafeTest_Sub4_S
+	//	*UnsafeTest_Sub4_B
+	Foo isUnsafeTest_Sub4_Foo `protobuf_oneof:"foo"`
+}
+
+func (x *UnsafeTest_Sub4) Reset() {
+	*x = UnsafeTest_Sub4{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_module_proto_msgTypes[24]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *UnsafeTest_Sub4) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnsafeTest_Sub4) ProtoMessage() {}
+
+func (x *UnsafeTest_Sub4) ProtoReflect() protoreflect.Message {
+	mi := &file_module_proto_msgTypes[24]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnsafeTest_Sub4.ProtoReflect.Descriptor instead.
+func (*UnsafeTest_Sub4) Descriptor() ([]byte, []int) {
+	return file_module_proto_rawDescGZIP(), []int{9, 3}
+}
+
+func (m *UnsafeTest_Sub4) GetFoo() isUnsafeTest_Sub4_Foo {
+	if m != nil {
+		return m.Foo
+	}
+	return nil
+}
+
+func (x *UnsafeTest_Sub4) GetS() string {
+	if x, ok := x.GetFoo().(*UnsafeTest_Sub4_S); ok {
+		return x.S
+	}
+	return ""
+}
+
+func (x *UnsafeTest_Sub4) GetB() []byte {
+	if x, ok := x.GetFoo().(*UnsafeTest_Sub4_B); ok {
+		return x.B
+	}
+	return nil
+}
+
+type isUnsafeTest_Sub4_Foo interface {
+	isUnsafeTest_Sub4_Foo()
+}
+
+type UnsafeTest_Sub4_S struct {
+	S string `protobuf:"bytes,1,opt,name=s,proto3,oneof"`
+}
+
+type UnsafeTest_Sub4_B struct {
+	B []byte `protobuf:"bytes,2,opt,name=b,proto3,oneof"`
+}
+
+func (*UnsafeTest_Sub4_S) isUnsafeTest_Sub4_Foo() {}
+
+func (*UnsafeTest_Sub4_B) isUnsafeTest_Sub4_Foo() {}
+
 var File_module_proto protoreflect.FileDescriptor
 
 var file_module_proto_rawDesc = []byte{
@@ -1096,11 +1443,39 @@ var file_module_proto_rawDesc = []byte{
 	0x72, 0x52, 0x07, 0x6e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x58, 0x12, 0x25, 0x0a, 0x08, 0x73, 0x74,
 	0x72, 0x69, 0x6e, 0x67, 0x5f, 0x78, 0x18, 0x0a, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0a, 0x2e, 0x70,
 	0x62, 0x2e, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x52, 0x07, 0x73, 0x74, 0x72, 0x69, 0x6e, 0x67,
-	0x58, 0x42, 0x07, 0x0a, 0x05, 0x6f, 0x6e, 0x65, 0x6f, 0x66, 0x2a, 0x28, 0x0a, 0x04, 0x54, 0x79,
-	0x70, 0x65, 0x12, 0x0a, 0x0a, 0x06, 0x4e, 0x55, 0x4d, 0x42, 0x45, 0x52, 0x10, 0x00, 0x12, 0x0a,
-	0x0a, 0x06, 0x53, 0x54, 0x52, 0x49, 0x4e, 0x47, 0x10, 0x01, 0x12, 0x08, 0x0a, 0x04, 0x42, 0x4f,
-	0x4f, 0x4c, 0x10, 0x02, 0x42, 0x06, 0x5a, 0x04, 0x2e, 0x2f, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72,
-	0x6f, 0x74, 0x6f, 0x33,
+	0x58, 0x42, 0x07, 0x0a, 0x05, 0x6f, 0x6e, 0x65, 0x6f, 0x66, 0x22, 0xbc, 0x03, 0x0a, 0x0a, 0x55,
+	0x6e, 0x73, 0x61, 0x66, 0x65, 0x54, 0x65, 0x73, 0x74, 0x12, 0x29, 0x0a, 0x04, 0x73, 0x75, 0x62,
+	0x31, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x13, 0x2e, 0x70, 0x62, 0x2e, 0x55, 0x6e, 0x73,
+	0x61, 0x66, 0x65, 0x54, 0x65, 0x73, 0x74, 0x2e, 0x53, 0x75, 0x62, 0x31, 0x48, 0x00, 0x52, 0x04,
+	0x73, 0x75, 0x62, 0x31, 0x12, 0x29, 0x0a, 0x04, 0x73, 0x75, 0x62, 0x32, 0x18, 0x02, 0x20, 0x01,
+	0x28, 0x0b, 0x32, 0x13, 0x2e, 0x70, 0x62, 0x2e, 0x55, 0x6e, 0x73, 0x61, 0x66, 0x65, 0x54, 0x65,
+	0x73, 0x74, 0x2e, 0x53, 0x75, 0x62, 0x32, 0x48, 0x00, 0x52, 0x04, 0x73, 0x75, 0x62, 0x32, 0x12,
+	0x29, 0x0a, 0x04, 0x73, 0x75, 0x62, 0x33, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x13, 0x2e,
+	0x70, 0x62, 0x2e, 0x55, 0x6e, 0x73, 0x61, 0x66, 0x65, 0x54, 0x65, 0x73, 0x74, 0x2e, 0x53, 0x75,
+	0x62, 0x33, 0x48, 0x00, 0x52, 0x04, 0x73, 0x75, 0x62, 0x33, 0x12, 0x29, 0x0a, 0x04, 0x73, 0x75,
+	0x62, 0x34, 0x18, 0x04, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x13, 0x2e, 0x70, 0x62, 0x2e, 0x55, 0x6e,
+	0x73, 0x61, 0x66, 0x65, 0x54, 0x65, 0x73, 0x74, 0x2e, 0x53, 0x75, 0x62, 0x34, 0x48, 0x00, 0x52,
+	0x04, 0x73, 0x75, 0x62, 0x34, 0x1a, 0x22, 0x0a, 0x04, 0x53, 0x75, 0x62, 0x31, 0x12, 0x0c, 0x0a,
+	0x01, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x01, 0x73, 0x12, 0x0c, 0x0a, 0x01, 0x62,
+	0x18, 0x02, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x01, 0x62, 0x1a, 0x22, 0x0a, 0x04, 0x53, 0x75, 0x62,
+	0x32, 0x12, 0x0c, 0x0a, 0x01, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x09, 0x52, 0x01, 0x73, 0x12,
+	0x0c, 0x0a, 0x01, 0x62, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0c, 0x52, 0x01, 0x62, 0x1a, 0x83, 0x01,
+	0x0a, 0x04, 0x53, 0x75, 0x62, 0x33, 0x12, 0x2e, 0x0a, 0x03, 0x66, 0x6f, 0x6f, 0x18, 0x01, 0x20,
+	0x03, 0x28, 0x0b, 0x32, 0x1c, 0x2e, 0x70, 0x62, 0x2e, 0x55, 0x6e, 0x73, 0x61, 0x66, 0x65, 0x54,
+	0x65, 0x73, 0x74, 0x2e, 0x53, 0x75, 0x62, 0x33, 0x2e, 0x46, 0x6f, 0x6f, 0x45, 0x6e, 0x74, 0x72,
+	0x79, 0x52, 0x03, 0x66, 0x6f, 0x6f, 0x1a, 0x4b, 0x0a, 0x08, 0x46, 0x6f, 0x6f, 0x45, 0x6e, 0x74,
+	0x72, 0x79, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52,
+	0x03, 0x6b, 0x65, 0x79, 0x12, 0x29, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x02, 0x20,
+	0x01, 0x28, 0x0b, 0x32, 0x13, 0x2e, 0x70, 0x62, 0x2e, 0x55, 0x6e, 0x73, 0x61, 0x66, 0x65, 0x54,
+	0x65, 0x73, 0x74, 0x2e, 0x53, 0x75, 0x62, 0x32, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x3a,
+	0x02, 0x38, 0x01, 0x1a, 0x2d, 0x0a, 0x04, 0x53, 0x75, 0x62, 0x34, 0x12, 0x0e, 0x0a, 0x01, 0x73,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x48, 0x00, 0x52, 0x01, 0x73, 0x12, 0x0e, 0x0a, 0x01, 0x62,
+	0x18, 0x02, 0x20, 0x01, 0x28, 0x0c, 0x48, 0x00, 0x52, 0x01, 0x62, 0x42, 0x05, 0x0a, 0x03, 0x66,
+	0x6f, 0x6f, 0x42, 0x05, 0x0a, 0x03, 0x73, 0x75, 0x62, 0x2a, 0x28, 0x0a, 0x04, 0x54, 0x79, 0x70,
+	0x65, 0x12, 0x0a, 0x0a, 0x06, 0x4e, 0x55, 0x4d, 0x42, 0x45, 0x52, 0x10, 0x00, 0x12, 0x0a, 0x0a,
+	0x06, 0x53, 0x54, 0x52, 0x49, 0x4e, 0x47, 0x10, 0x01, 0x12, 0x08, 0x0a, 0x04, 0x42, 0x4f, 0x4f,
+	0x4c, 0x10, 0x02, 0x42, 0x06, 0x5a, 0x04, 0x2e, 0x2f, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x33,
 }
 
 var (
@@ -1116,29 +1491,35 @@ func file_module_proto_rawDescGZIP() []byte {
 }
 
 var file_module_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_module_proto_msgTypes = make([]protoimpl.MessageInfo, 20)
+var file_module_proto_msgTypes = make([]protoimpl.MessageInfo, 26)
 var file_module_proto_goTypes = []interface{}{
-	(Type)(0),        // 0: pb.Type
-	(*Number)(nil),   // 1: pb.Number
-	(*String)(nil),   // 2: pb.String
-	(*Bool)(nil),     // 3: pb.Bool
-	(*Message)(nil),  // 4: pb.Message
-	(*Array)(nil),    // 5: pb.Array
-	(*Map)(nil),      // 6: pb.Map
-	(*Empty)(nil),    // 7: pb.Empty
-	(*Optional)(nil), // 8: pb.Optional
-	(*Oneof)(nil),    // 9: pb.Oneof
-	nil,              // 10: pb.Map.NumbersEntry
-	nil,              // 11: pb.Map.StringsEntry
-	nil,              // 12: pb.Map.BoolsEntry
-	nil,              // 13: pb.Map.MessagesEntry
-	nil,              // 14: pb.Map.ArraysEntry
-	nil,              // 15: pb.Map.TypesEntry
-	nil,              // 16: pb.Map.U32sEntry
-	nil,              // 17: pb.Map.StrsEntry
-	nil,              // 18: pb.Map.EmptiesEntry
-	nil,              // 19: pb.Map.OptionalsEntry
-	nil,              // 20: pb.Map.OneofsEntry
+	(Type)(0),               // 0: pb.Type
+	(*Number)(nil),          // 1: pb.Number
+	(*String)(nil),          // 2: pb.String
+	(*Bool)(nil),            // 3: pb.Bool
+	(*Message)(nil),         // 4: pb.Message
+	(*Array)(nil),           // 5: pb.Array
+	(*Map)(nil),             // 6: pb.Map
+	(*Empty)(nil),           // 7: pb.Empty
+	(*Optional)(nil),        // 8: pb.Optional
+	(*Oneof)(nil),           // 9: pb.Oneof
+	(*UnsafeTest)(nil),      // 10: pb.UnsafeTest
+	nil,                     // 11: pb.Map.NumbersEntry
+	nil,                     // 12: pb.Map.StringsEntry
+	nil,                     // 13: pb.Map.BoolsEntry
+	nil,                     // 14: pb.Map.MessagesEntry
+	nil,                     // 15: pb.Map.ArraysEntry
+	nil,                     // 16: pb.Map.TypesEntry
+	nil,                     // 17: pb.Map.U32sEntry
+	nil,                     // 18: pb.Map.StrsEntry
+	nil,                     // 19: pb.Map.EmptiesEntry
+	nil,                     // 20: pb.Map.OptionalsEntry
+	nil,                     // 21: pb.Map.OneofsEntry
+	(*UnsafeTest_Sub1)(nil), // 22: pb.UnsafeTest.Sub1
+	(*UnsafeTest_Sub2)(nil), // 23: pb.UnsafeTest.Sub2
+	(*UnsafeTest_Sub3)(nil), // 24: pb.UnsafeTest.Sub3
+	(*UnsafeTest_Sub4)(nil), // 25: pb.UnsafeTest.Sub4
+	nil,                     // 26: pb.UnsafeTest.Sub3.FooEntry
 }
 var file_module_proto_depIdxs = []int32{
 	0,  // 0: pb.Message.type:type_name -> pb.Type
@@ -1151,17 +1532,17 @@ var file_module_proto_depIdxs = []int32{
 	4,  // 7: pb.Array.messages:type_name -> pb.Message
 	5,  // 8: pb.Array.arrays:type_name -> pb.Array
 	0,  // 9: pb.Array.types:type_name -> pb.Type
-	10, // 10: pb.Map.numbers:type_name -> pb.Map.NumbersEntry
-	11, // 11: pb.Map.strings:type_name -> pb.Map.StringsEntry
-	12, // 12: pb.Map.bools:type_name -> pb.Map.BoolsEntry
-	13, // 13: pb.Map.messages:type_name -> pb.Map.MessagesEntry
-	14, // 14: pb.Map.arrays:type_name -> pb.Map.ArraysEntry
-	15, // 15: pb.Map.types:type_name -> pb.Map.TypesEntry
-	16, // 16: pb.Map.u32s:type_name -> pb.Map.U32sEntry
-	17, // 17: pb.Map.strs:type_name -> pb.Map.StrsEntry
-	18, // 18: pb.Map.empties:type_name -> pb.Map.EmptiesEntry
-	19, // 19: pb.Map.optionals:type_name -> pb.Map.OptionalsEntry
-	20, // 20: pb.Map.oneofs:type_name -> pb.Map.OneofsEntry
+	11, // 10: pb.Map.numbers:type_name -> pb.Map.NumbersEntry
+	12, // 11: pb.Map.strings:type_name -> pb.Map.StringsEntry
+	13, // 12: pb.Map.bools:type_name -> pb.Map.BoolsEntry
+	14, // 13: pb.Map.messages:type_name -> pb.Map.MessagesEntry
+	15, // 14: pb.Map.arrays:type_name -> pb.Map.ArraysEntry
+	16, // 15: pb.Map.types:type_name -> pb.Map.TypesEntry
+	17, // 16: pb.Map.u32s:type_name -> pb.Map.U32sEntry
+	18, // 17: pb.Map.strs:type_name -> pb.Map.StrsEntry
+	19, // 18: pb.Map.empties:type_name -> pb.Map.EmptiesEntry
+	20, // 19: pb.Map.optionals:type_name -> pb.Map.OptionalsEntry
+	21, // 20: pb.Map.oneofs:type_name -> pb.Map.OneofsEntry
 	1,  // 21: pb.Optional.number:type_name -> pb.Number
 	2,  // 22: pb.Optional.string:type_name -> pb.String
 	3,  // 23: pb.Optional.bool:type_name -> pb.Bool
@@ -1176,20 +1557,26 @@ var file_module_proto_depIdxs = []int32{
 	0,  // 32: pb.Oneof.type:type_name -> pb.Type
 	1,  // 33: pb.Oneof.number_x:type_name -> pb.Number
 	2,  // 34: pb.Oneof.string_x:type_name -> pb.String
-	1,  // 35: pb.Map.NumbersEntry.value:type_name -> pb.Number
-	2,  // 36: pb.Map.StringsEntry.value:type_name -> pb.String
-	3,  // 37: pb.Map.BoolsEntry.value:type_name -> pb.Bool
-	4,  // 38: pb.Map.MessagesEntry.value:type_name -> pb.Message
-	5,  // 39: pb.Map.ArraysEntry.value:type_name -> pb.Array
-	0,  // 40: pb.Map.TypesEntry.value:type_name -> pb.Type
-	7,  // 41: pb.Map.EmptiesEntry.value:type_name -> pb.Empty
-	8,  // 42: pb.Map.OptionalsEntry.value:type_name -> pb.Optional
-	9,  // 43: pb.Map.OneofsEntry.value:type_name -> pb.Oneof
-	44, // [44:44] is the sub-list for method output_type
-	44, // [44:44] is the sub-list for method input_type
-	44, // [44:44] is the sub-list for extension type_name
-	44, // [44:44] is the sub-list for extension extendee
-	0,  // [0:44] is the sub-list for field type_name
+	22, // 35: pb.UnsafeTest.sub1:type_name -> pb.UnsafeTest.Sub1
+	23, // 36: pb.UnsafeTest.sub2:type_name -> pb.UnsafeTest.Sub2
+	24, // 37: pb.UnsafeTest.sub3:type_name -> pb.UnsafeTest.Sub3
+	25, // 38: pb.UnsafeTest.sub4:type_name -> pb.UnsafeTest.Sub4
+	1,  // 39: pb.Map.NumbersEntry.value:type_name -> pb.Number
+	2,  // 40: pb.Map.StringsEntry.value:type_name -> pb.String
+	3,  // 41: pb.Map.BoolsEntry.value:type_name -> pb.Bool
+	4,  // 42: pb.Map.MessagesEntry.value:type_name -> pb.Message
+	5,  // 43: pb.Map.ArraysEntry.value:type_name -> pb.Array
+	0,  // 44: pb.Map.TypesEntry.value:type_name -> pb.Type
+	7,  // 45: pb.Map.EmptiesEntry.value:type_name -> pb.Empty
+	8,  // 46: pb.Map.OptionalsEntry.value:type_name -> pb.Optional
+	9,  // 47: pb.Map.OneofsEntry.value:type_name -> pb.Oneof
+	26, // 48: pb.UnsafeTest.Sub3.foo:type_name -> pb.UnsafeTest.Sub3.FooEntry
+	23, // 49: pb.UnsafeTest.Sub3.FooEntry.value:type_name -> pb.UnsafeTest.Sub2
+	50, // [50:50] is the sub-list for method output_type
+	50, // [50:50] is the sub-list for method input_type
+	50, // [50:50] is the sub-list for extension type_name
+	50, // [50:50] is the sub-list for extension extendee
+	0,  // [0:50] is the sub-list for field type_name
 }
 
 func init() { file_module_proto_init() }
@@ -1306,6 +1693,66 @@ func file_module_proto_init() {
 				return nil
 			}
 		}
+		file_module_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UnsafeTest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_module_proto_msgTypes[21].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UnsafeTest_Sub1); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_module_proto_msgTypes[22].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UnsafeTest_Sub2); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_module_proto_msgTypes[23].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UnsafeTest_Sub3); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_module_proto_msgTypes[24].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UnsafeTest_Sub4); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	file_module_proto_msgTypes[7].OneofWrappers = []interface{}{}
 	file_module_proto_msgTypes[8].OneofWrappers = []interface{}{
@@ -1317,13 +1764,23 @@ func file_module_proto_init() {
 		(*Oneof_U32)(nil),
 		(*Oneof_Str)(nil),
 	}
+	file_module_proto_msgTypes[9].OneofWrappers = []interface{}{
+		(*UnsafeTest_Sub1_)(nil),
+		(*UnsafeTest_Sub2_)(nil),
+		(*UnsafeTest_Sub3_)(nil),
+		(*UnsafeTest_Sub4_)(nil),
+	}
+	file_module_proto_msgTypes[24].OneofWrappers = []interface{}{
+		(*UnsafeTest_Sub4_S)(nil),
+		(*UnsafeTest_Sub4_B)(nil),
+	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_module_proto_rawDesc,
 			NumEnums:      1,
-			NumMessages:   20,
+			NumMessages:   26,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

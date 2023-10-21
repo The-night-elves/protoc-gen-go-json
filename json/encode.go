@@ -77,6 +77,16 @@ func (f *File) GenerateMessages(ctx *Context) error {
 }
 
 func (f *File) GenerateMessage(ctx *Context, msg *protogen.Message) error {
+	// 解决 proto message 内嵌套 message
+	for _, nested := range msg.Messages {
+		if err := f.GenerateMessage(ctx, nested); err != nil {
+			return err
+		}
+	}
+	if msg.Desc.IsMapEntry() {
+		return nil
+	}
+	// generate json encode function
 	f.P("// ", msg.Desc.FullName())
 	if len(msg.Fields) == 0 {
 		f.P("func (", Instance, " *", msg.GoIdent, ") ", ctx.EncodeMethodName, "() ([]byte, error) {")
